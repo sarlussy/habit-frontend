@@ -20,14 +20,6 @@ This is the frontend for my full-stack habit tracking app — built in React, st
 
 ## 🧪 Getting Started
 
-Clone the repo and install dependencies:
-
-```bash
-git clone https://github.com/YOUR_USERNAME/habit-frontend.git
-cd habit-frontend
-npm install
-npm start
-
 Make sure your backend is running at http://localhost:3000.
 
 📬 Future Features
@@ -44,3 +36,10 @@ Coming soon (once I deploy it).
 🧑‍💻 Author
 
 Built by @sarlussy — a raccoon in the streets, a full-stack in the commits.
+Clone the repo and install dependencies:
+
+```bash
+git clone https://github.com/YOUR_USERNAME/habit-frontend.git
+cd habit-frontend
+npm install
+npm start
