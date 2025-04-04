@@ -40,9 +40,18 @@ function Dashboard() {
   // ✅ Just call it here
   // eslint-disable-next-line react-hooks/exhaustive-deps
   useEffect(() => {
-    fetchHabits();
-  }, [token]);
-
+    if (!token) {
+      navigate('/login');
+      return; // 🧠 don't let it keep going
+    }
+  
+    const fetchData = async () => {
+      await fetchHabits();
+    };
+  
+    fetchData();
+  }, [token, navigate]); // 🧼 cleaned up deps
+  
   const handleAddHabit = async (e) => {
     e.preventDefault();
     try {
@@ -96,13 +105,6 @@ function Dashboard() {
   };
   const navigate = useNavigate();
 
-useEffect(() => {
-  if (!token) {
-    navigate('/login');
-  } else {
-    fetchHabits();
-  }
-}, [token]);
 
   return (
     <div>
