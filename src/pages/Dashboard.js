@@ -1,6 +1,7 @@
 import { useEffect, useState } from 'react';
 import axios from '../api/axios';
 import AnimatedStreak from '../components/AnimatedStreak';
+import { useNavigate } from 'react-router-dom';
 
 function Dashboard() {
   const [habits, setHabits] = useState([]);
@@ -93,6 +94,16 @@ function Dashboard() {
       alert(err.response?.data?.message || 'Check-in failed');
     }
   };
+  const navigate = useNavigate();
+
+useEffect(() => {
+  if (!token) {
+    navigate('/login');
+  } else {
+    fetchHabits();
+  }
+}, [token]);
+
   return (
     <div>
       <h2>Dashboard</h2>
